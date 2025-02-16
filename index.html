@@ -49,152 +49,220 @@
         <div class="container-fluid p-0">
             <!-- About-->
             <style>
-                /* Animated gradient background */
-                @keyframes gradientShift {
-                  0% {
-                    background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
-                  }
-                  50% {
-                    background: linear-gradient(135deg, #FFE0B2, #FFF3E0);
-                  }
-                  100% {
-                    background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
-                  }
+              /* Animated gradient background */
+              @keyframes gradientShift {
+                0% {
+                  background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
                 }
-                
-                /* Fade in upward animation */
-                @keyframes fadeInUp {
-                  0% {
-                    opacity: 0;
-                    transform: translateY(20px);
-                  }
-                  100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                  }
+                50% {
+                  background: linear-gradient(135deg, #FFE0B2, #FFF3E0);
                 }
-                
-                /* Orange Theme & About Section Styling */
-                #about {
-                  animation: gradientShift 15s ease infinite;
-                  padding: 2rem;
-                  border-radius: 12px;
-                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                100% {
+                  background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
                 }
-                
-                /* Header styling with increased size and additional emphasis for the name */
-                #about .header-container h1 {
-                  font-size: 6rem; /* Increased font size for overall impact */
-                  margin: 0;
-                  font-weight: 900;
-                  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-                  animation: fadeInUp 1.2s ease-out;
-                }
-                
-                /* Highlighting "Ray" without increasing its size */
-                #about .header-container h1 .text-primary {
-                  color: #FFA500 !important;
-                  /* Removed font-size increase so it inherits the parent's size */
-                  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-                }
-                
-                /* Header container layout */
-                .header-container {
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                  flex-wrap: wrap;
-                }
-                
-                /* Social Icons Styling with hover scale effect */
-                .social-icons a {
-                  color: #FFA500;
-                  font-size: 1.75rem;
-                  margin-right: 1rem;
-                  transition: color 0.3s ease, transform 0.3s ease;
-                }
-                .social-icons a:hover {
-                  color: #FF8C00;
-                  transform: scale(1.1);
-                }
-                
-                /* Updated Contact Details Styling */
-                .subheading {
-                  margin-bottom: 1.5rem;
-                  animation: fadeInUp 1.5s ease-out;
-                }
-                .subheading .contact-item {
-                  display: flex;
-                  align-items: center;
-                  font-size: 1.1rem;
-                  color: #555;
-                  margin-bottom: 0.5rem;
-                }
-                .subheading .contact-item i {
-                  margin-right: 0.5rem;
-                  color: #FFA500;
-                }
-                /* Flip the phone icon horizontally */
-                .subheading .contact-item i.fa-phone-alt {
-                  transform: scaleX(-1);
-                }
-                .subheading .contact-item a {
-                  color: #FFA500;
-                  text-decoration: none;
-                }
-                .subheading .contact-item a:hover {
-                  text-decoration: underline;
-                }
-                
-                /* About section text styling with hover effects on list items */
-                .about-section {
-                  font-size: 1rem;
-                  line-height: 1.6;
-                  color: #555;
-                  animation: fadeInUp 1.8s ease-out;
-                }
-                .about-section .lead {
-                  margin-bottom: 0.75rem;
-                }
-                .about-section ul {
-                  list-style-position: inside;
-                  margin-bottom: 0.75rem;
-                }
-                .about-section li {
-                  margin-bottom: 0.5rem;
-                  transition: transform 0.2s ease;
-                }
-                .about-section li:hover {
-                  transform: scale(1.02);
-                }
-              </style>
+              }
               
-              <section class="resume-section" id="about">
-                <div class="resume-section-content">
-                  <!-- Header with Name and Social Icons -->
+              /* Fade in upward animation */
+              @keyframes fadeInUp {
+                0% {
+                  opacity: 0;
+                  transform: translateY(20px);
+                }
+                100% {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
+              }
+              
+              /* Orange Theme & About Section Styling */
+              #about {
+                animation: gradientShift 15s ease infinite;
+                padding: 2rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+              }
+              
+              /* Hide default marker for details/summary */
+              details {
+                border: none;
+              }
+              summary {
+                list-style: none;
+                cursor: pointer;
+                outline: none;
+                /* Adding left padding to make room for our custom arrow */
+                padding-left: 2.5rem;
+                position: relative;
+              }
+              summary::-webkit-details-marker {
+                display: none;
+              }
+              
+              /* Custom clickable arrow for the main header summary */
+              #about > details > summary::before {
+                content: "\25B6";  /* Right-pointing arrow */
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 2rem;
+                color: #FFA500;
+                transition: transform 0.3s ease;
+              }
+              #about > details[open] > summary::before {
+                transform: translateY(-50%) rotate(90deg);
+              }
+              
+              /* Header container in a row so icons appear beside the name */
+              .header-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+              }
+              
+              /* Header styling with increased size and emphasis for the name */
+              .header-container h1 {
+                font-size: 8rem; /* Increased font size for extra impact */
+                margin: 0;
+                font-weight: 900;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+                animation: fadeInUp 1.2s ease-out;
+              }
+              
+              /* Highlighting "Ray" while keeping its original style */
+              .header-container h1 .text-primary {
+                color: #FFA500 !important;
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+              }
+              
+              /* Social Icons Styling with hover scale effect; placed beside name */
+              .social-icons {
+                margin-left: 1.5rem;
+              }
+              .social-icons a {
+                color: #FFA500;
+                font-size: 1.75rem;
+                margin-right: 0.5rem;
+                transition: color 0.3s ease, transform 0.3s ease;
+              }
+              .social-icons a:hover {
+                color: #FF8C00;
+                transform: scale(1.1);
+              }
+              
+              /* Updated Contact Details Styling */
+              .subheading {
+                margin-bottom: 1.5rem;
+                animation: fadeInUp 1.5s ease-out;
+              }
+              .subheading .contact-item {
+                display: flex;
+                align-items: center;
+                font-size: 1.1rem;
+                color: #555;
+                margin-bottom: 0.5rem;
+              }
+              .subheading .contact-item i {
+                margin-right: 0.5rem;
+                color: #FFA500;
+              }
+              .subheading .contact-item i.fa-phone-alt {
+                transform: scaleX(-1);
+              }
+              .subheading .contact-item a {
+                color: #FFA500;
+                text-decoration: none;
+              }
+              .subheading .contact-item a:hover {
+                text-decoration: underline;
+              }
+              
+              /* About section text styling with enhanced hover effects */
+              .about-section {
+                font-size: 1rem;
+                line-height: 1.6;
+                color: #555;
+                animation: fadeInUp 1.8s ease-out;
+              }
+              .about-section .lead {
+                margin-bottom: 0.75rem;
+              }
+              .about-section ul {
+                list-style-position: inside;
+                margin-bottom: 0.75rem;
+              }
+              .about-section li {
+                margin-bottom: 0.5rem;
+                transition: transform 0.2s ease, color 0.2s ease;
+                position: relative;
+              }
+              .about-section li:hover {
+                transform: scale(1.02);
+                color: #FF8C00;
+              }
+              .about-section li:hover::before {
+                content: "» ";
+                color: #FFA500;
+                position: absolute;
+                left: -1rem;
+              }
+              
+              /* Styles for individual collapsible sections */
+              .collapsible-section summary {
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 1.2rem;
+                padding: 0.5rem 0;
+                border-bottom: 1px dashed #FFA500;
+                position: relative;
+              }
+              .collapsible-section summary:hover {
+                color: #FF8C00;
+              }
+              .collapsible-section summary::before {
+                content: "\25B6"; /* Right-pointing arrow */
+                display: inline-block;
+                margin-right: 0.5rem;
+                transition: transform 0.3s ease;
+              }
+              .collapsible-section[open] summary::before {
+                transform: rotate(90deg);
+              }
+              
+              /* Optional: add a little padding to content within collapsible sections */
+              .collapsible-section div {
+                padding: 0.5rem 1rem;
+              }
+            </style>
+            
+            <section class="resume-section" id="about">
+              <details>
+                <summary>
+                  <!-- Main Header with Name and Social Icons in a row -->
                   <div class="header-container">
                     <h1 class="mb-0">
                       Samrat <span class="text-primary">Ray</span>
                     </h1>
-                    <div class="social-icons" style="margin-top: 0.5rem;">
+                    <div class="social-icons">
                       <a class="social-icon" href="https://www.linkedin.com/in/samrat-ray-165934281" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
                       </a>
                       <a class="social-icon" href="https://github.com/SamratRay2005" target="_blank">
                         <i class="fab fa-github"></i>
                       </a>
-                      <!-- Uncomment below if you wish to include Instagram -->
-                      <!-- <a class="social-icon" href="https://www.instagram.com/ingenious_engineer05" target="_blank"><i class="fab fa-instagram"></i></a> -->
                     </div>
                   </div>
-                  
+                </summary>
+                
+                <!-- Collapsible Content -->
+                <div class="resume-section-content">
                   <!-- Updated Contact Details -->
                   <div class="subheading mb-5">
                     <p class="contact-item">
                       <i class="fas fa-map-marker-alt"></i>
                       Boys Hostel 2, IIIT Rd, Indian Institute of Information Technology, Jhalwa, Prayagraj, Saha Urf Pipalgaon, Uttar Pradesh 211012
                     </p>
-                    
                     <p class="contact-item">
                       <i class="fas fa-envelope"></i>
                       <a href="mailto:samratrayofficial@email.com">
@@ -209,14 +277,23 @@
                       Hi, I'm a passionate IT Engineering student currently pursuing my degree at IIIT Allahabad (Class of 2027). With a strong foundation in machine learning and hands-on experience in AI/ML projects, I thrive on solving complex problems and innovating new solutions.
                     </p>
                     
-                    <ul class="lead">
-                      <li>
-                        <strong>Experience in Machine Learning:</strong>
-                        <br>
-                        I've worked on various ML projects that blend theory with practical application, fueling my enthusiasm for AI.
-                      </li>
-                      <li>
-                        <strong>Competitive Programming:</strong>
+                    <!-- Collapsible Section: Machine Learning Experience -->
+                    <details class="collapsible-section">
+                      <summary>Experience in Machine Learning:</summary>
+                      <div>
+                        <p>I've worked on various ML projects that blend theory with practical application, fueling my enthusiasm for AI and ML.</p>
+                        <ul style="margin-top: 0.2rem;">
+                          <li>
+                            Proud to be among the top 3 at DataBlitz @ OpenCode IIITA.
+                          </li>
+                        </ul>
+                      </div>
+                    </details>
+                    
+                    <!-- Collapsible Section: Competitive Programming -->
+                    <details class="collapsible-section">
+                      <summary>Competitive Programming:</summary>
+                      <div>
                         <ul style="margin-top: 0.2rem;">
                           <li>
                             <a href="https://www.codechef.com/users/samrat_iiita" target="_blank" style="font-weight: bold; text-decoration: underline; color: #FFA500;">
@@ -228,17 +305,18 @@
                               Codeforces:
                             </a> Specialist
                           </li>
-                          <li>
-                            Proud to be among the top 3 at DataBlitz @ OpenCode IIITA.
-                          </li>
+                  
                         </ul>
-                      </li>
-                      <li>
-                        <strong>Technical Skills:</strong>
-                        <br>
-                        Proficient in JAVA &amp; C++.
-                      </li>
-                    </ul>
+                      </div>
+                    </details>
+                    
+                    <!-- Collapsible Section: Technical Skills -->
+                    <details class="collapsible-section">
+                      <summary>Technical Skills:</summary>
+                      <div>
+                        <p>Proficient in JAVA &amp; C++.</p>
+                      </div>
+                    </details>
                     
                     <p class="lead">
                       My journey is driven by curiosity and the constant pursuit of knowledge. I believe in continuous learning and collaboration, and I'm always on the lookout for opportunities to contribute to exciting projects and cutting-edge research.
@@ -247,8 +325,9 @@
                     </p>
                   </div>
                 </div>
-              </section>
-              
+              </details>
+            </section>
+                       
               
             <hr class="m-0" />
 
@@ -453,7 +532,7 @@
                   </section>
                   
                   
-              
+        </div>
               
               
               

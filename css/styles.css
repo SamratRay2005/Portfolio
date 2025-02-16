@@ -596,7 +596,7 @@ progress {
   color: #6c757d;
 }
 .blockquote-footer::before {
-  content: "— ";
+  content: "— ";
 }
 
 .img-fluid {
@@ -1568,6 +1568,21 @@ progress {
   .g-xl-5,
   .gy-xl-5 {
     --bs-gutter-y: 3rem;
+  }
+}
+
+/* Default large desktop image */
+.img-profile {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* For mobile devices, scale the image down */
+@media (max-width: 767.98px) {
+  .img-profile {
+    width: 150px;
+    height: 150px;
   }
 }
 @media (min-width: 1400px) {

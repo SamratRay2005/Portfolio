@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Resume - Start Bootstrap Theme</title>
@@ -20,7 +20,38 @@
                 height: 400px; /* Ensures the image remains a perfect circle */
                 object-fit: cover; /* Ensures the image scales nicely */
             }
+
+            /* NEW: Sliding animation CSS for project cards */
+            .project-card.slide-from-left {
+                opacity: 0;
+                transform: translateX(-50px);
+                transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+            }
+            .project-card.slide-from-left.animate {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            .project-card.slide-from-right {
+                opacity: 0;
+                transform: translateX(50px);
+                transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+            }
+            .project-card.slide-from-right.animate {
+                opacity: 1;
+                transform: translateX(0);
+            }
         </style>
+        <!-- Include these in your head if not already present -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <!-- Remove or comment out the custom Python color override -->
+        <!--
+        <style>
+          #skills .devicon-python-plain {
+            color: #306998 !important;
+          }
+        </style>
+        -->
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -59,7 +90,7 @@
                   background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
                 }
               }
-              
+          
               /* Fade in upward animation */
               @keyframes fadeInUp {
                 0% {
@@ -71,7 +102,7 @@
                   transform: translateY(0);
                 }
               }
-              
+          
               /* Orange Theme & About Section Styling */
               #about {
                 animation: gradientShift 15s ease infinite;
@@ -79,7 +110,7 @@
                 border-radius: 12px;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
               }
-              
+          
               /* Hide default marker for details/summary */
               details {
                 border: none;
@@ -95,7 +126,7 @@
               summary::-webkit-details-marker {
                 display: none;
               }
-              
+          
               /* Custom clickable arrow for the main header summary */
               #about > details > summary::before {
                 content: "\25B6";  /* Right-pointing arrow */
@@ -110,7 +141,7 @@
               #about > details[open] > summary::before {
                 transform: translateY(-50%) rotate(90deg);
               }
-              
+          
               /* Header container in a row so icons appear beside the name */
               .header-container {
                 display: flex;
@@ -118,7 +149,7 @@
                 align-items: center;
                 justify-content: center;
               }
-              
+          
               /* Header styling with increased size and emphasis for the name */
               .header-container h1 {
                 font-size: 8rem; /* Increased font size for extra impact */
@@ -127,13 +158,13 @@
                 text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
                 animation: fadeInUp 1.2s ease-out;
               }
-              
+          
               /* Highlighting "Ray" while keeping its original style */
               .header-container h1 .text-primary {
                 color: #FFA500 !important;
                 text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
               }
-              
+          
               /* Social Icons Styling with hover scale effect; placed beside name */
               .social-icons {
                 margin-left: 1.5rem;
@@ -148,7 +179,7 @@
                 color: #FF8C00;
                 transform: scale(1.1);
               }
-              
+          
               /* Updated Contact Details Styling */
               .subheading {
                 margin-bottom: 1.5rem;
@@ -175,7 +206,7 @@
               .subheading .contact-item a:hover {
                 text-decoration: underline;
               }
-              
+          
               /* About section text styling with enhanced hover effects */
               .about-section {
                 font-size: 1rem;
@@ -205,7 +236,7 @@
                 position: absolute;
                 left: -1rem;
               }
-              
+          
               /* Styles for individual collapsible sections */
               .collapsible-section summary {
                 cursor: pointer;
@@ -227,13 +258,13 @@
               .collapsible-section[open] summary::before {
                 transform: rotate(90deg);
               }
-              
+          
               /* Optional: add a little padding to content within collapsible sections */
               .collapsible-section div {
                 padding: 0.5rem 1rem;
               }
             </style>
-            
+        
             <section class="resume-section" id="about">
               <details>
                 <summary>
@@ -252,29 +283,34 @@
                     </div>
                   </div>
                 </summary>
-                
+            
                 <!-- Collapsible Content -->
                 <div class="resume-section-content">
                   <!-- Updated Contact Details -->
                   <div class="subheading mb-5">
                     <p class="contact-item">
-                      <i class="fas fa-map-marker-alt"></i>
+                      <i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i>
                       Boys Hostel 2, IIIT Rd, Indian Institute of Information Technology, Jhalwa, Prayagraj, Saha Urf Pipalgaon, Uttar Pradesh 211012
                     </p>
                     <p class="contact-item">
-                      <i class="fas fa-envelope"></i>
-                      <a href="mailto:samratrayofficial@email.com">
-                        samratrayofficial@gmail.com
-                      </a>
+                      <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>
+                      <a href="mailto:samratrayofficial@email.com"
+   style="color: #ff6600; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; text-decoration: underline; text-transform: lowercase;">
+  samratrayofficial@gmail.com
+</a>
+
                     </p>
                   </div>
-                  
+                </div>
+            
+            
+              
                   <!-- About Section Content -->
                   <div class="about-section">
                     <p class="lead">
                       Hi, I'm a passionate IT Engineering student currently pursuing my degree at IIIT Allahabad (Class of 2027). With a strong foundation in machine learning and hands-on experience in AI/ML projects, I thrive on solving complex problems and innovating new solutions.
                     </p>
-                    
+                
                     <!-- Collapsible Section: Machine Learning Experience -->
                     <details class="collapsible-section">
                       <summary>Experience in Machine Learning:</summary>
@@ -282,12 +318,14 @@
                         <p>I've worked on various ML projects that blend theory with practical application, fueling my enthusiasm for AI and ML.</p>
                         <ul style="margin-top: 0.2rem;">
                           <li>
-                            Proud to be among the top 3 at DataBlitz @ OpenCode IIITA.
+                            <a href="https://certificate.givemycertificate.com/c/95042264-6872-4812-957c-170e1c5053c5" target="_blank" style="text-decoration: underline; color: inherit;">
+                              Proud to be among the top 3 at DataBlitz @ OpenCode IIITA.
+                            </a>
                           </li>
                         </ul>
                       </div>
-                    </details>
-                    
+                    </details>                    
+                
                     <!-- Collapsible Section: Competitive Programming -->
                     <details class="collapsible-section">
                       <summary>Competitive Programming:</summary>
@@ -303,11 +341,11 @@
                               Codeforces:
                             </a> Specialist
                           </li>
-                  
+              
                         </ul>
                       </div>
                     </details>
-                    
+                
                     <!-- Collapsible Section: Technical Skills -->
                     <details class="collapsible-section">
                       <summary>Languages:</summary>
@@ -315,7 +353,7 @@
                         <p>Proficient in JAVA , C++ &amp; Python.</p>
                       </div>
                     </details>
-                    
+                
                     <p class="lead">
                       My journey is driven by curiosity and the constant pursuit of knowledge. I believe in continuous learning and collaboration, and I'm always on the lookout for opportunities to contribute to exciting projects and cutting-edge research.
                       <br><br>
@@ -325,220 +363,287 @@
                 </div>
               </details>
             </section>
-                       
-              
+                   
+          
             <hr class="m-0" />
 
 
             <!-- Experience-->
             <!-- Add this CSS in your <head> or within a <style> tag -->
-                <style>
-                    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-                  
-                    /* Overall Section Styling */
-                    #experience .resume-section-content {
-                      font-family: 'Montserrat', sans-serif;
-                      color: #333;
-                      background: linear-gradient(135deg, #FFF3E0, #FFE0B2); /* soft orange gradient */
-                      padding: 2rem;
-                      border-radius: 12px;
-                      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    }
-                  
-                    /* Section Title Styling */
-                    #experience h2 {
-                      font-size: 2.75rem;
-                      color: #D35400; /* deep orange */
-                      font-weight: 700;
-                      border-bottom: 3px solid #FFA500; /* orange border accent */
-                      padding-bottom: 0.5rem;
-                      margin-bottom: 2.5rem;
-                      text-transform: uppercase;
-                      letter-spacing: 1px;
-                    }
-                  
-                    /* Project Title Styling */
-                    #experience h3 {
-                      font-size: 1.75rem;
-                      color: #E67E22; /* warm orange tone */
-                      margin-bottom: 0.5rem;
-                      position: relative;
-                    }
-                    #experience h3:after {
-                      content: '';
-                      display: block;
-                      width: 50px;
-                      height: 3px;
-                      background: #FFA500; /* orange accent */
-                      margin-top: 5px;
-                      border-radius: 2px;
-                    }
-                  
-                    /* Subheading & Text Styling */
-                    #experience .subheading {
-                      color: #FF8C00; /* bright orange for subheadings */
-                      font-size: 1rem;
-                      margin-bottom: 1rem;
-                    }
-                    #experience p, #experience li {
-                      font-size: 1rem;
-                      line-height: 1.6;
-                    }
-                  
-                    /* Link Styling */
-                    #experience a {
-                      color: #FFA500; /* orange links */
-                      text-decoration: none;
-                      font-weight: 600;
-                      transition: color 0.3s ease;
-                    }
-                    #experience a:hover {
-                      color: #FF8C00;
-                      text-decoration: underline;
-                    }
-                  
-                    /* List Styling */
-                    #experience ul {
-                      margin-left: 1.5rem;
-                      list-style-type: disc;
-                    }
-                  
-                    /* Project Card Styling */
-                    .d-flex.flex-column.flex-md-row.justify-content-between.mb-5 {
-                      background: #fff;
-                      padding: 1.5rem;
-                      border-radius: 8px;
-                      margin-bottom: 2rem !important;
-                      transition: transform 0.3s ease, box-shadow 0.3s ease;
-                    }
-                    .d-flex.flex-column.flex-md-row.justify-content-between.mb-5:hover {
-                      transform: translateY(-5px);
-                      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-                    }
-                  </style>
-                  
-                  <!-- Projects Section -->
-                  <section class="resume-section" id="experience">
-                    <div class="resume-section-content">
-                      <h2 class="mb-5">Projects</h2>
-                      
-                      <!-- Project 1: InkSpire: Real-Time Sketch Colorization -->
-                      <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                          <h3 class="mb-0">
-                            <a href="https://huggingface.co/spaces/samratray/Inkspire" target="_blank">
-                              InkSpire: Real-Time Sketch Colorization
-                            </a>
-                          </h3>
-                          <div class="subheading mb-3">Deployed on Hugging Face (link above)</div>
-                          <p>
-                            Engineered a web application utilizing Generative Adversarial Networks (GANs) for real-time sketch-to-color transformation.
-                          </p>
-                          <ul>
-                            <li>
-                              Developed an interactive HTML5 drawing canvas integrated with a Flask backend, significantly enhancing user interactivity and reducing latency.
-                            </li>
-                            <li>
-                              Trained a custom GAN model on the Anime Sketch Colorization Pair dataset, generating high-quality, visually appealing colorized sketches with realistic color distribution.
-                            </li>
-                            <li>
-                              Implemented a UNet architecture to improve image segmentation and overall colorization performance.
-                            </li>
-                          </ul>
-                          <p><strong>Tech Stack:</strong> Python, TensorFlow, Flask, HTML5, JavaScript</p>
-                          <p><strong>GitHub Link:</strong> <a href="https://github.com/ranjeetkulkarni/InkSpire" target="_blank">https://github.com/ranjeetkulkarni/InkSpire</a></p>
-                        </div>
-                        <div class="flex-shrink-0">
-                        </div>
-                      </div>
-                      
-                      <!-- Project 2: Campus Ease Web App -->
-                      <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                          <h3 class="mb-0">Campus Ease Web App</h3>
-                          <p>
-                            Designed a student-centric application incorporating PDF summarization and real-time audio transcription using Wav2Vec2.
-                          </p>
-                          <p>
-                            Developed a robust backend with Flask and MongoDB, ensuring scalability and efficient data management.
-                          </p>
-                          <p><strong>Tech Stack:</strong> Python, Flask, MongoDB, Wav2Vec2</p>
-                          <p><strong>GitHub Link:</strong> <a href="https://github.com/SamratRay2005/Campus-Ease" target="_blank">https://github.com/SamratRay2005/Campus-Ease</a></p>
-                        </div>
-                        <div class="flex-shrink-0">
-                        </div>
-                      </div>
-                      
-                      <!-- Project 3: MediChat: Medical Chatbot -->
-                      <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                          <h3 class="mb-0">MediChat: Medical Chatbot</h3>
-                          <ul>
-                            <li>
-                              Developed an intelligent chatbot leveraging BERT models for symptom classification, achieving an accuracy of 85%.
-                            </li>
-                            <li>
-                              Integrated CSV-based data retrieval to streamline response generation and enhance system efficiency.
-                            </li>
-                          </ul>
-                          <p><strong>Tech Stack:</strong> Python, PyTorch, BERT, Flask, Pandas, CSV</p>
-                          <p><strong>GitHub Link:</strong> <a href="https://github.com/SamratRay2005/MediChat" target="_blank">https://github.com/SamratRay2005/MediChat</a></p>
-                        </div>
-                        <div class="flex-shrink-0">
-                        </div>
-                      </div>
-                      
-                      <!-- Project 4: WhatsApp Expense Bot -->
-                      <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                          <h3 class="mb-0">WhatsApp Expense Bot</h3>
-                          <div class="subheading mb-3">Built with Rasa</div>
-                          <p>
-                            A WhatsApp-integrated chatbot that allows users to record, categorize, and query expenses using Rasa NLU and custom actions.
-                          </p>
-                          <ul>
-                            <li>Automates expense categorization with Hugging Face Transformers.</li>
-                            <li>Securely manages credentials and stores data in SQLite.</li>
-                          </ul>
-                          <p><strong>Tech Stack:</strong> Python, Rasa, Hugging Face, SQLite</p>
-                          <p><strong>GitHub Link:</strong> <a href="https://github.com/SamratRay2005/Whatsapp-Expense-Bot" target="_blank">https://github.com/SamratRay2005/Whatsapp-Expense-Bot</a></p>
-                        </div>
-                        <div class="flex-shrink-0">
-                        </div>
-                      </div>
-                      
-                      <!-- Project 5: Handwritten Recognizer -->
-                      <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                          <h3 class="mb-0">Handwritten Recognizer</h3>
-                          <p>
-                            Developed a CNN model to classify handwritten digits using the MNIST dataset.
-                          </p>
-                          <ul>
-                            <li>Preprocessed and normalized MNIST data; reshaped for CNN input.</li>
-                            <li>Implemented a CNN architecture with Conv2D, MaxPooling, Dense layers, and Dropout (0.5) for regularization.</li>
-                            <li>Trained the model for 20 epochs and saved it as <code>handwritten.h5</code>.</li>
-                          </ul>
-                          <p><strong>Tech Stack:</strong> Python, TensorFlow, Keras, OpenCV</p>
-                          <p><strong>GitHub Link:</strong> <a href="https://github.com/SamratRay2005/Handwritten-Digit-Recognition" target="_blank">https://github.com/SamratRay2005/Handwritten-Digit-Recognition</a></p>
-                        </div>
-                        <div class="flex-shrink-0">
-                        </div>
-                      </div>
-                      
+              <style>
+                @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+          
+                /* Overall Section Styling */
+                #experience .resume-section-content {
+                  font-family: 'Montserrat', sans-serif;
+                  color: #333;
+                  background: linear-gradient(135deg, #FFF3E0, #FFE0B2); /* soft orange gradient */
+                  padding: 2rem;
+                  border-radius: 12px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+          
+                /* Section Title Styling */
+                #experience h2 {
+                  font-size: 2.75rem;
+                  color: #D35400; /* deep orange */
+                  font-weight: 700;
+                  border-bottom: 3px solid #FFA500; /* orange border accent */
+                  padding-bottom: 0.5rem;
+                  margin-bottom: 2.5rem;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                }
+          
+                /* Project Title Styling */
+                #experience h3 {
+                  font-size: 1.75rem;
+                  color: #E67E22; /* warm orange tone */
+                  margin-bottom: 0.5rem;
+                  position: relative;
+                }
+                #experience h3:after {
+                  content: '';
+                  display: block;
+                  width: 50px;
+                  height: 3px;
+                  background: #FFA500; /* orange accent */
+                  margin-top: 5px;
+                  border-radius: 2px;
+                }
+          
+                /* Subheading & Text Styling */
+                #experience .subheading {
+                  color: #FF8C00; /* bright orange for subheadings */
+                  font-size: 1rem;
+                  margin-bottom: 1rem;
+                }
+                #experience p, #experience li {
+                  font-size: 1rem;
+                  line-height: 1.6;
+                }
+          
+                /* Link Styling */
+                #experience a {
+                  color: #FFA500; /* orange links */
+                  text-decoration: none;
+                  font-weight: 600;
+                  transition: color 0.3s ease;
+                }
+                #experience a:hover {
+                  color: #FF8C00;
+                  text-decoration: underline;
+                }
+          
+                /* List Styling */
+                #experience ul {
+                  margin-left: 1.5rem;
+                  list-style-type: disc;
+                }
+          
+                /* Project Card Styling */
+                .d-flex.flex-column.flex-md-row.justify-content-between.mb-5 {
+                  background: #fff;
+                  padding: 1.5rem;
+                  border-radius: 8px;
+                  margin-bottom: 2rem !important;
+                  transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                .d-flex.flex-column.flex-md-row.justify-content-between.mb-5:hover {
+                  transform: translateY(-5px);
+                  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                }
+              </style>
+          
+              <!-- Projects Section -->
+              <section class="resume-section" id="experience">
+                <div class="resume-section-content">
+                  <h2 class="mb-5">Projects</h2>
+              
+                  <!-- Project 1: InkSpire: Real-Time Sketch Colorization -->
+                  <div class="d-flex flex-column flex-md-row justify-content-between mb-5 project-card">
+                    <div class="flex-grow-1">
+                      <h3 class="mb-0">
+                        <a href="https://huggingface.co/spaces/samratray/Inkspire" target="_blank">
+                          InkSpire: Real-Time Sketch Colorization
+                        </a>
+                      </h3>
+                      <div class="subheading mb-3">Deployed on Hugging Face</div>
+                      <p>
+                        Engineered a web application utilizing <strong>Generative Adversarial Networks (GANs)</strong> for real-time sketch-to-color transformation.
+                      </p>
+                      <ul>
+                        <li>
+                          Developed an interactive <strong>HTML5 drawing canvas</strong> integrated with a <strong>Flask backend</strong>, significantly enhancing user interactivity and reducing latency.
+                        </li>
+                        <li>
+                          Trained a custom GAN model on the <strong>Anime Sketch Colorization Pair dataset</strong>, generating high-quality, visually appealing colorized sketches.
+                        </li>
+                        <li>
+                          Implemented a <strong>UNet architecture</strong> to improve image segmentation and overall colorization performance.
+                        </li>
+                      </ul>
+                      <p>
+                        <strong>Tech Stack:</strong> <strong>Python</strong>, <strong>TensorFlow</strong>, <strong>Flask</strong>, <strong>HTML5</strong>, <strong>JavaScript</strong>
+                      </p>
+                      <p>
+                        <strong>GitHub Link:</strong> <a href="https://github.com/ranjeetkulkarni/InkSpire" target="_blank">https://github.com/ranjeetkulkarni/InkSpire</a>
+                      </p>
                     </div>
-                  </section>
-                  
-                  
-        </div>
+                    <div class="flex-shrink-0"></div>
+                  </div>
               
+                  <!-- Project 2: MediChat: Medical Chatbot -->
+                  <div class="d-flex flex-column flex-md-row justify-content-between mb-5 project-card">
+                    <div class="flex-grow-1">
+                      <h3 class="mb-0">MediChat: Medical Chatbot</h3>
+                      <ul>
+                        <li>
+                          Developed an intelligent chatbot leveraging <strong>BERT models</strong> for symptom classification, achieving an accuracy of 85%.
+                        </li>
+                        <li>
+                          Integrated <strong>CSV-based data retrieval</strong> to streamline response generation and enhance system efficiency.
+                        </li>
+                      </ul>
+                      <p>
+                        <strong>Tech Stack:</strong> <strong>Python</strong>, <strong>PyTorch</strong>, <strong>BERT</strong>, <strong>Flask</strong>, <strong>Pandas</strong>, <strong>CSV</strong>
+                      </p>
+                      <p>
+                        <strong>GitHub Link:</strong> <a href="https://github.com/SamratRay2005/MediChat" target="_blank">https://github.com/SamratRay2005/MediChat</a>
+                      </p>
+                    </div>
+                    <div class="flex-shrink-0"></div>
+                  </div>
               
+                  <!-- Project 3: WhatsApp Expense Bot -->
+                  <div class="d-flex flex-column flex-md-row justify-content-between mb-5 project-card">
+                    <div class="flex-grow-1">
+                      <h3 class="mb-0">WhatsApp Expense Bot</h3>
+                      <div class="subheading mb-3">Built with Rasa</div>
+                      <p>
+                        A WhatsApp-integrated chatbot that allows users to record, categorize, and query expenses using <strong>Rasa NLU</strong> and custom actions.
+                      </p>
+                      <ul>
+                        <li>
+                          Automates expense categorization with <strong>Hugging Face Transformers</strong>.
+                        </li>
+                        <li>
+                          Securely manages credentials and stores data in <strong>SQLite</strong>.
+                        </li>
+                      </ul>
+                      <p>
+                        <strong>Tech Stack:</strong> <strong>Python</strong>, <strong>Rasa</strong>, <strong>Hugging Face</strong>, <strong>SQLite</strong>
+                      </p>
+                      <p>
+                        <strong>GitHub Link:</strong> <a href="https://github.com/SamratRay2005/Whatsapp-Expense-Bot" target="_blank">https://github.com/SamratRay2005/Whatsapp-Expense-Bot</a>
+                      </p>
+                    </div>
+                    <div class="flex-shrink-0"></div>
+                  </div>
               
+                  <!-- Project 4: Campus Ease Web App -->
+                  <div class="d-flex flex-column flex-md-row justify-content-between mb-5 project-card">
+                    <div class="flex-grow-1">
+                      <h3 class="mb-0">Campus Ease Web App</h3>
+                      <p>
+                        Designed a student-centric application incorporating <strong>PDF summarization</strong> and <strong>real-time audio transcription</strong> using <strong>Wav2Vec2</strong>.
+                      </p>
+                      <p>
+                        Developed a robust backend with <strong>Flask</strong> and <strong>MongoDB</strong> to ensure scalability and efficient data management.
+                      </p>
+                      <p>
+                        <strong>Tech Stack:</strong> <strong>Python</strong>, <strong>Flask</strong>, <strong>MongoDB</strong>, <strong>Wav2Vec2</strong>
+                      </p>
+                      <p>
+                        <strong>GitHub Link:</strong> <a href="https://github.com/SamratRay2005/Campus-Ease" target="_blank">https://github.com/SamratRay2005/Campus-Ease</a>
+                      </p>
+                    </div>
+                    <div class="flex-shrink-0"></div>
+                  </div>
+              
+                  <!-- Project 5: 9 Box Puzzle Game -->
+                  <div class="d-flex flex-column flex-md-row justify-content-between mb-5 project-card">
+                    <div class="flex-grow-1">
+                      <h3 class="mb-0">
+                        <a href="https://github.com/SamratRay2005/9-box-puzzle" target="_blank">9 Box Puzzle Game</a>
+                      </h3>
+                      <div class="subheading mb-3">Java Swing Sliding Puzzle</div>
+                      <p>
+                        A Java Swing-based sliding puzzle with 8 tiles and 1 empty space. Rearrange the tiles in as few moves as possible.
+                      </p>
+                      <ul style="font-size: 1.2rem; line-height: 1.6;">
+                        <li>
+                          <strong>Interactive GUI:</strong> Enjoy a sleek, responsive interface built with <strong>Java Swing</strong>.
+                        </li>
+                        <li>
+                          <strong>Move Counter:</strong> Track every move to solve the puzzle efficiently.
+                        </li>
+                        <li>
+                          <strong>Sliding Puzzle Gameplay:</strong> Slide adjacent tiles into the empty space to restore order.
+                        </li>
+                        <li>
+                          <strong>Solution Checker:</strong> Automatically validates your moves upon puzzle completion.
+                        </li>
+                        <li>
+                          <strong>Randomized, Solvable Shuffling:</strong> Each game starts with a fresh, solvable configuration.
+                        </li>
+                        <li>
+                          <strong>Persistent Leaderboard:</strong> Records your name and move count in a <code>database.txt</code> file.
+                        </li>
+                      </ul>
+                      <p>
+                        <strong>Tech Stack:</strong> <strong>Java</strong>, <strong>Swing</strong>
+                      </p>
+                      <p>
+                        <strong>GitHub:</strong> <a href="https://github.com/SamratRay2005/9-box-puzzle" target="_blank">github.com/SamratRay2005/9-box-puzzle</a>
+                      </p>
+                    </div>
+                    <div class="flex-shrink-0">
+                      <!-- Optionally, add an image or icon for the project here -->
+                    </div>
+                  </div>
+              
+                  <!-- Project 6: Handwritten Recognizer -->
+                  <div class="d-flex flex-column flex-md-row justify-content-between mb-5 project-card">
+                    <div class="flex-grow-1">
+                      <h3 class="mb-0">Handwritten Recognizer</h3>
+                      <p>
+                        Developed a CNN model to classify handwritten digits using the <strong>MNIST dataset</strong>.
+                      </p>
+                      <ul>
+                        <li>
+                          Preprocessed and normalized <strong>MNIST data</strong> for optimal <strong>CNN input</strong>.
+                        </li>
+                        <li>
+                          Implemented a <strong>CNN architecture</strong> with <strong>Conv2D</strong>, <strong>MaxPooling</strong>, <strong>Dense layers</strong>, and <strong>Dropout (0.5)</strong> for regularization.
+                        </li>
+                        <li>
+                          Trained the model for 20 epochs and saved it as <code>handwritten.h5</code>.
+                        </li>
+                      </ul>
+                      <p>
+                        <strong>Tech Stack:</strong> <strong>Python</strong>, <strong>TensorFlow</strong>, <strong>Keras</strong>, <strong>OpenCV</strong>
+                      </p>
+                      <p>
+                        <strong>GitHub Link:</strong> <a href="https://github.com/SamratRay2005/Handwritten-Digit-Recognition" target="_blank">https://github.com/SamratRay2005/Handwritten-Digit-Recognition</a>
+                      </p>
+                    </div>
+                    <div class="flex-shrink-0"></div>
+                  </div>
+              
+                </div>
+              </section>
+
+          
+               
+          
+          
+          
             <hr class="m-0" />
             <!-- Education-->
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-              
+          
                 /* Overall Section Styling */
                 #education .resume-section-content {
                   font-family: 'Montserrat', sans-serif;
@@ -548,7 +653,7 @@
                   border-radius: 12px;
                   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 }
-              
+          
                 /* Section Title Styling */
                 #education h2 {
                   font-size: 2.75rem;
@@ -560,7 +665,7 @@
                   text-transform: uppercase;
                   letter-spacing: 1px;
                 }
-              
+          
                 /* Subheading & Text Styling */
                 #education .subheading {
                   color: #FF8C00; /* bright orange for subheadings */
@@ -572,12 +677,12 @@
                   font-size: 1rem;
                   line-height: 1.6;
                 }
-              
+          
                 /* Date Styling */
                 #education .flex-shrink-0 {
                   text-align: right;
                 }
-              
+          
                 /* Education Box Styling */
                 .education-box {
                   background: #fff;
@@ -590,17 +695,17 @@
                   transform: translateY(-5px);
                   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
                 }
-              
+          
                 /* Override primary text color to orange */
                 .text-primary {
                   color: #FFA500 !important;
                 }
               </style>
-              
+          
               <section class="resume-section" id="education">
                 <div class="resume-section-content">
                   <h2 class="mb-5">Education</h2>
-                  
+              
                   <!-- Education 1: IIITA -->
                   <div class="education-box d-flex flex-column flex-md-row align-items-center justify-content-between mb-5">
                     <div class="flex-grow-1">
@@ -612,7 +717,7 @@
                       <span class="text-primary">2023 – Present</span>
                     </div>
                   </div>
-                  
+              
                   <!-- Education 2: DPS -->
                   <div class="education-box d-flex flex-column flex-md-row align-items-center justify-content-between">
                     <div class="flex-grow-1">
@@ -626,11 +731,11 @@
                       <span class="text-primary">2021 – 2023</span>
                     </div>
                   </div>
-                  
+              
                 </div>
               </section>
-              
-              
+          
+          
             <hr class="m-0" />
             <!-- Skills-->
             <!-- Include in your head if not already present -->
@@ -648,7 +753,7 @@
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
   #skills h2 {
     font-size: 2.75rem;
     color: #D35400; /* deep orange */
@@ -660,7 +765,7 @@
     letter-spacing: 1px;
     text-align: center;
   }
-  
+
   /* Tab Button Container */
   #skills .tab-buttons {
     display: flex;
@@ -669,7 +774,7 @@
     margin-bottom: 1.5rem;
     justify-content: center;
   }
-  
+
   /* Redesigned Tab Buttons */
   #skills .tab-button {
     background-color: #FFA500; /* orange */
@@ -682,25 +787,25 @@
     font-weight: 600;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
-  
+
   #skills .tab-button:hover {
     background-color: #FF8C00; /* darker orange */
   }
-  
+
   #skills .tab-button.active {
     background-color: #FF8C00;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  
+
   /* Tab Content */
   .tab-content {
     display: none;
   }
-  
+
   .tab-content.active {
     display: block;
   }
-  
+
   /* Grid Layout for Icons with Labels */
   #skills .skills-grid {
     display: flex;
@@ -709,25 +814,25 @@
     margin-bottom: 1.5rem;
     justify-content: center;
   }
-  
+
   #skills .skill-item {
     text-align: center;
     width: 120px;
+    cursor: default;
   }
-  
+
   #skills .skill-item i {
     font-size: 3rem;
     display: block;
     margin-bottom: 0.5rem;
-    /* Removed color override to retain the original logo colors */
   }
-  
+
   #skills .skill-item span {
     font-size: 1rem;
     font-weight: 500;
     display: block;
   }
-  
+
   /* Optional: description styling under each tab */
   #skills .tab-description {
     font-size: 1rem;
@@ -740,7 +845,7 @@
 <section class="resume-section" id="skills">
   <div class="resume-section-content">
     <h2 class="mb-5">Skills</h2>
-    
+
     <!-- Tab Buttons -->
     <div class="tab-buttons">
       <button class="tab-button active" data-tab="programming">Programming Languages</button>
@@ -750,25 +855,25 @@
       <button class="tab-button" data-tab="tools">Tools/Frameworks</button>
       <button class="tab-button" data-tab="databases">Databases</button>
     </div>
-    
+
     <!-- Tab Content: Programming Languages -->
     <div class="tab-content active" id="programming">
       <div class="skills-grid">
-        <div class="skill-item">
+        <div class="skill-item" title="High-performance C++ programming">
           <i class="devicon-cplusplus-plain colored"></i>
           <span>C++</span>
         </div>
-        <div class="skill-item">
+        <div class="skill-item" title="Versatile scripting with Python">
           <i class="devicon-python-plain colored"></i>
           <span>Python</span>
         </div>
-        <div class="skill-item">
+        <div class="skill-item" title="Core programming language for game logic">
           <i class="devicon-java-plain colored"></i>
           <span>Java</span>
         </div>
       </div>
     </div>
-    
+
     <!-- Tab Content: Machine Learning -->
     <div class="tab-content" id="machine">
       <div class="skills-grid">
@@ -797,9 +902,8 @@
           <span>Decision Trees</span>
         </div>
       </div>
-      <!-- <div class="tab-description">Techniques include linear and logistic regression models, among others.</div> -->
     </div>
-    
+
     <!-- Tab Content: Natural Language Processing -->
     <div class="tab-content" id="nlp">
       <div class="skills-grid">
@@ -821,7 +925,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Tab Content: Computer Vision -->
     <div class="tab-content" id="cv">
       <div class="skills-grid">
@@ -843,10 +947,11 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Tab Content: Tools/Frameworks -->
     <div class="tab-content" id="tools">
       <div class="skills-grid">
+        <!-- Existing Tools -->
         <div class="skill-item">
           <i class="devicon-tensorflow-original colored"></i>
           <span>TensorFlow</span>
@@ -867,9 +972,71 @@
           <i class="devicon-matplotlib-plain colored"></i>
           <span>Matplotlib</span>
         </div>
+        <!-- Previously Added Tools -->
+        <div class="skill-item" title="Conversational AI development (Rasa, Rasa SDK)">
+          <i class="fas fa-comments" style="color: #FFA500;"></i>
+          <span>Rasa Framework</span>
+        </div>
+        <div class="skill-item" title="NLP tasks (zero-shot classification, NER)">
+          <i class="fas fa-robot" style="color: #FFA500;"></i>
+          <span>Hugging Face Transformers</span>
+        </div>
+        <div class="skill-item" title="WhatsApp integration">
+          <i class="fas fa-phone-alt" style="color: #FFA500;"></i>
+          <span>Twilio</span>
+        </div>
+        <div class="skill-item" title="Local database management">
+          <i class="devicon-sqlite-plain colored"></i>
+          <span>SQLite</span>
+        </div>
+        <div class="skill-item" title="Web server for handling HTTP requests">
+          <i class="fas fa-server" style="color: #FFA500;"></i>
+          <span>Sanic</span>
+        </div>
+        <div class="skill-item" title="Exposing local servers to the internet">
+          <i class="fas fa-project-diagram" style="color: #FFA500;"></i>
+          <span>ngrok</span>
+        </div>
+        <!-- Java Game Development Tools -->
+        <div class="skill-item" title="GUI framework for building interactive game interfaces">
+          <i class="fas fa-desktop" style="color: #FFA500;"></i>
+          <span>Swing</span>
+        </div>
+        <div class="skill-item" title="Essential development environment for compiling and running Java programs">
+          <i class="fas fa-code" style="color: #FFA500;"></i>
+          <span>JDK</span>
+        </div>
+        <div class="skill-item" title="Runtime environment for executing Java applications">
+          <i class="fas fa-play-circle" style="color: #FFA500;"></i>
+          <span>JRE</span>
+        </div>
+        <div class="skill-item" title="Used for event handling and GUI components">
+          <i class="fas fa-hand-pointer" style="color: #FFA500;"></i>
+          <span>AWT</span>
+        </div>
+        <!-- <div class="skill-item" title="Dependency management and project building tool">
+          <i class="devicon-maven-plain colored"></i>
+          <span>Maven</span>
+        </div>
+        <div class="skill-item" title="Dependency management and project automation">
+          <i class="devicon-gradle-plain colored"></i>
+          <span>Gradle</span>
+        </div> -->
+        <div class="skill-item" title="Unit testing framework for Java">
+          <i class="fas fa-vial" style="color: #FFA500;"></i>
+          <span>JUnit</span>
+        </div>
+        <div class="skill-item" title="Version control">
+          <i class="devicon-git-plain colored"></i>
+          <span>Git</span>
+        </div>
+        <div class="skill-item" title="Repository management platform">
+          <i class="devicon-github-original colored"></i>
+          <span>GitHub</span>
+        </div>
       </div>
     </div>
-    
+
     <!-- Tab Content: Databases -->
     <div class="tab-content" id="databases">
       <div class="skills-grid">
@@ -883,126 +1050,172 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 </section>
 
 <script>
-  // Tab switching functionality
-  document.querySelectorAll('#skills .tab-button').forEach(button => {
-    button.addEventListener('click', () => {
-      const tab = button.getAttribute('data-tab');
-      
-      // Remove active class from all buttons and tab contents
-      document.querySelectorAll('#skills .tab-button').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('#skills .tab-content').forEach(content => content.classList.remove('active'));
-      
-      // Activate current button and corresponding tab content
-      button.classList.add('active');
-      document.getElementById(tab).classList.add('active');
+  // Wait for the DOM to load before attaching event listeners
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('#skills .tab-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const tab = button.getAttribute('data-tab');
+    
+        // Remove active class from all buttons and tab contents
+        document.querySelectorAll('#skills .tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('#skills .tab-content').forEach(content => content.classList.remove('active'));
+    
+        // Activate current button and corresponding tab content
+        button.classList.add('active');
+        document.getElementById(tab).classList.add('active');
+      });
     });
   });
 </script>
 
 
+
             <hr class="m-0" />
             <!-- Interests-->
             <style>
-                /* Overall Certifications Section Styling */
+                /* Added animation for the heading */
+                @keyframes fadeInDown {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(-20px);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                /* Enhanced Certifications Section Styling */
                 #interests .resume-section-content {
-                  font-family: 'Montserrat', sans-serif;
-                  color: #333;
-                  background: linear-gradient(135deg, #FFF3E0, #FFE0B2); /* soft orange gradient */
-                  padding: 2rem;
-                  border-radius: 12px;
-                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    font-family: 'Montserrat', sans-serif;
+                    color: #333;
+                    background: linear-gradient(135deg, #FFF3E0, #FFE0B2); /* soft orange gradient */
+                    padding: 2rem;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 }
                 #interests h2 {
-                  font-size: 2.75rem;
-                  color: #D35400; /* deep orange */
-                  font-weight: 700;
-                  border-bottom: 3px solid #FFA500; /* accent orange border */
-                  padding-bottom: 0.5rem;
-                  margin-bottom: 2.5rem;
-                  text-transform: uppercase;
-                  letter-spacing: 1px;
-                  text-align: center;
+                    font-size: 2.75rem;
+                    color: #D35400;
+                    font-weight: 700;
+                    border-bottom: 3px solid #FFA500;
+                    padding-bottom: 0.5rem;
+                    margin-bottom: 2.5rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    text-align: center;
+                    animation: fadeInDown 1s ease-out;
+                }
+                .certification-category {
+                    background: rgba(255, 165, 0, 0.1);
+                    border-radius: 8px;
+                    padding: 1.5rem;
+                    margin-bottom: 1.5rem;
+                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                .certification-category:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
                 }
                 .certification-category h3 {
-                  font-size: 1.5rem;
-                  color: #E67E22; /* warm orange tone */
-                  margin-bottom: 1rem;
-                  border-bottom: 2px solid #FFA500; /* orange accent */
-                  display: inline-block;
-                  padding-bottom: 0.25rem;
+                    font-size: 1.5rem;
+                    color: #E67E22;
+                    margin-bottom: 1rem;
+                    border-bottom: 2px solid #FFA500;
+                    display: inline-block;
+                    padding-bottom: 0.25rem;
+                    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
                 }
                 .certification-category ul {
-                  list-style: none;
-                  padding-left: 0;
+                    list-style: none;
+                    padding-left: 0;
                 }
                 .certification-category li {
-                  margin-bottom: 1rem;
+                    position: relative;
+                    padding-left: 35px;
+                    margin-bottom: 1rem;
+                    transition: transform 0.2s ease;
+                }
+                .certification-category li:hover {
+                    transform: translateX(5px);
+                }
+                .certification-category li::before {
+                    content: "\f0a3";
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: #FF8C00;
+                    font-size: 1rem;
                 }
                 .certification-category a {
-                  color: #FFA500; /* orange link color */
-                  text-decoration: none;
-                  font-weight: 600;
+                    color: #FFA500;
+                    text-decoration: none;
+                    font-weight: 600;
                 }
                 .certification-category a:hover {
-                  text-decoration: underline;
-                  color: #FF8C00;
+                    text-decoration: underline;
+                    color: #FF8C00;
                 }
-              </style>
-              
-              <section class="resume-section" id="interests">
+            </style>
+        
+            <section class="resume-section" id="interests">
                 <div class="resume-section-content">
-                  <h2 class="mb-5">Certifications</h2>
-                  
-                  <!-- Machine Learning and AI Certifications -->
-                  <div class="certification-category mb-4">
-                    <h3>Machine Learning and AI</h3>
-                    <ul>
-                      <li>
-                        <strong>Machine Learning Specialization – DeepLearningAI (Stanford Online), 2024</strong>
-                        <br>
-                        <a href="https://www.coursera.org/account/accomplishments/specialization/1HRA1OCINH0I" target="_blank">View Certificate</a>
-                      </li>
-                      <li>
-                        <strong>Supervised Learning: Regression and Classification – Coursera, 2023</strong>
-                        <br>
-                        <a href="https://www.coursera.org/account/accomplishments/verify/5DYLKHLSUDRQ" target="_blank">View Certificate</a>
-                      </li>
-                      <li>
-                        <strong>Advanced Learning Algorithms – Coursera, 2023</strong>
-                        <br>
-                        <a href="https://www.coursera.org/account/accomplishments/verify/JW97VB72A81L" target="_blank">View Certificate</a>
-                      </li>
-                      <li>
-                        <strong>Unsupervised Learning, Recommenders, and Reinforcement Learning – Coursera, 2023</strong>
-                        <br>
-                        <a href="https://www.coursera.org/account/accomplishments/verify/UXWRFQWKPFUR" target="_blank">View Certificate</a>
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <!-- Open Source and Development Certifications -->
-                  <div class="certification-category">
-                    <h3>Open Source and Development</h3>
-                    <ul>
-                      <li>
-                        <strong>OpenCode Contributor – GeekHaven, IIIT Allahabad, 2024</strong>
-                        <br>
-                        <a href="https://certificate.givemycertificate.com/c/8a806dd6-aaec-42e0-b093-95bcc22bc739" target="_blank">View Certificate</a>
-                      </li>
-                    </ul>
-                  </div>
+                    <h2 class="mb-5">Certifications</h2>
+                
+                    <!-- Machine Learning and AI Certifications -->
+                    <div class="certification-category mb-4">
+                        <h3>Machine Learning and AI</h3>
+                        <ul>
+                            <li>
+                                <strong>Machine Learning Specialization – DeepLearningAI (Stanford Online), 2024</strong>
+                                <br>
+                                <a href="https://www.coursera.org/account/accomplishments/specialization/1HRA1OCINH0I" target="_blank">View Certificate</a>
+                            </li>
+                            <li>
+                                <strong>Supervised Learning: Regression and Classification – Coursera, 2023</strong>
+                                <br>
+                                <a href="https://www.coursera.org/account/accomplishments/verify/5DYLKHLSUDRQ" target="_blank">View Certificate</a>
+                            </li>
+                            <li>
+                                <strong>Advanced Learning Algorithms – Coursera, 2023</strong>
+                                <br>
+                                <a href="https://www.coursera.org/account/accomplishments/verify/JW97VB72A81L" target="_blank">View Certificate</a>
+                            </li>
+                            <li>
+                                <strong>Unsupervised Learning, Recommenders, and Reinforcement Learning – Coursera, 2023</strong>
+                                <br>
+                                <a href="https://www.coursera.org/account/accomplishments/verify/UXWRFQWKPFUR" target="_blank">View Certificate</a>
+                            </li>
+                        </ul>
+                    </div>
+                
+                    <!-- Open Source and Development Certifications -->
+                    <div class="certification-category">
+                        <h3>Open Source and Development</h3>
+                        <ul>
+                            <li>
+                                <strong>OpenCode Contributor – GeekHaven, IIIT Allahabad, 2024</strong>
+                                <br>
+                                <a href="https://certificate.givemycertificate.com/c/8a806dd6-aaec-42e0-b093-95bcc22bc739" target="_blank">View Certificate</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-              </section>
+            </section>
 
-              
+          
 
 
-              
+          
             <hr class="m-0" />
             <!-- Awards-->
             <!-- Achievements Section Styles -->
@@ -1010,7 +1223,7 @@
 <section class="resume-section" id="awards">
     <div class="resume-section-content">
       <h2 class="mb-5">Achievements</h2>
-      
+  
       <!-- Competitive Programming -->
       <div class="award-category">
         <h3>Competitive Programming</h3>
@@ -1043,7 +1256,7 @@
           </li>
         </ul>
       </div>
-      
+  
       <!-- Academic Excellence -->
       <div class="award-category">
         <h3>Academic Excellence</h3>
@@ -1062,7 +1275,7 @@
           </li>
         </ul>
       </div>
-      
+  
       <!-- Mathematics Competitions -->
       <div class="award-category">
         <h3>Mathematics Competitions</h3>
@@ -1073,19 +1286,20 @@
           </li>
         </ul>
       </div>
-      
+  
       <!-- Hackathons and Coding Contests -->
       <div class="award-category">
         <h3>Hackathons and Coding Contests</h3>
         <ul class="fa-ul award-list">
-            <li>
-                <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                Secured 3rd position in the Data Blitz contest (AI-ML wing, GeekHaven) as part of IIIT Allahabad's Opencode'24 event.
-            </li>
-          </ul>
-          
+        <li>
+          <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+          <a href="https://certificate.givemycertificate.com/c/95042264-6872-4812-957c-170e1c5053c5" target="_blank">
+            Secured 3rd position in the Data Blitz contest (AI-ML wing, GeekHaven) as part of IIIT Allahabad's Opencode'24 event.
+          </a>
+          </li>
+        </ul>
       </div>
-      
+  
       <!-- College Contest Ranks -->
       <div class="award-category">
         <h3>College Contest Ranks</h3>
@@ -1100,10 +1314,10 @@
           </li>
         </ul>
       </div>
-      
+  
     </div>
   </section>
-  
+
   <!-- Updated Achievements Section CSS -->
   <style>
     /* Overall Achievements Section Styling */
@@ -1199,11 +1413,75 @@
       font-weight: 700;
     }
   </style>
-  
+
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Core theme JS-->
   <script src="js/scripts.js"></script>
-  
+
+  <!-- Inline JavaScript to trigger animations when projects scroll into view -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Select all project cards and assign alternating slide direction classes:
+      const projectCards = document.querySelectorAll('.project-card');
+      projectCards.forEach((card, index) => {
+        // First card (index 0) slides from the left, second (index 1) from the right, etc.
+        if (index % 2 === 0) {
+          card.classList.add('slide-from-left');
+        } else {
+          card.classList.add('slide-from-right');
+        }
+      });
+
+      const observerOptions = {
+        threshold: 0.2 // Adjust the threshold as needed
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe the project cards (which now have sliding direction classes)
+      projectCards.forEach(card => {
+        observer.observe(card);
+      });
+
+      // Also observe award categories as before
+      const awardCategories = document.querySelectorAll('.award-category');
+      awardCategories.forEach(category => {
+        observer.observe(category);
+      });
+    });
+  </script>
+
+  <!-- Add Animation to the Achievements Section -->
+  <style>
+    /* Updated Achievements Section CSS */
+    #awards .resume-section-content {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    /* New animation styling for award categories */
+    .award-category {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .award-category.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </body>
 </html>

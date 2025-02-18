@@ -31,4 +31,47 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // ----------------------------------------------
+    // Tab functionality for the Skills section
+    // ----------------------------------------------
+    document.querySelectorAll('#skills .tab-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const tab = button.getAttribute('data-tab');
+
+            // Remove active class from all buttons and tab contents
+            document.querySelectorAll('#skills .tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('#skills .tab-content').forEach(content => content.classList.remove('active'));
+
+            // Activate current button and corresponding tab content
+            button.classList.add('active');
+            document.getElementById(tab).classList.add('active');
+        });
+    });
+
+    // ---------------------------------------------------
+    // Intersection Observer for project animations & awards
+    // ---------------------------------------------------
+    const observerOptions = {
+        threshold: 0.2 // Adjust threshold as needed
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        observer.observe(card);
+    });
+
+    // Observe award categories (Achievements)
+    document.querySelectorAll('.award-category').forEach(category => {
+        observer.observe(category);
+    });
+
 });
